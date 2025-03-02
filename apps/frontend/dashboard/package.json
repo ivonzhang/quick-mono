@@ -7,12 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cli:test": "my-org-cli"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@my-org/ui": "workspace:*"
+    "@my-org/ui": "workspace:*",
+    "@my-org/cli": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

@@ -10,6 +10,9 @@ importers:
 
   apps/frontend/dashboard:
     dependencies:
+      '@my-org/cli':
+        specifier: workspace:*
+        version: link:../../../packages/cli
       '@my-org/ui':
         specifier: workspace:*
         version: link:../../../packages/ui
