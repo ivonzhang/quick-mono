@@ -2,6 +2,20 @@
 
 This repository is a **monorepo** that manages multiple projects in a single codebase using **pnpm workspace**. It also supports incremental builds with **turbo**.
 
+## Table of Contents
+
+- [Purpose](#purpose)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running Projects](#running-projects)
+  - [Using Hot Reload](#using-hot-reload)
+  - [Adding a New Project](#adding-a-new-project)
+  - [Common Scripts](#common-scripts)
+  - [Incremental Builds with Turbo](#incremental-builds-with-turbo)
+- [License](#license)
+
 ## Purpose
 
 The purpose of this repository is to enable developers to quickly set up a monorepo for business development. Developers can use the current project structure to develop their own business logic and organize their own monorepo.
