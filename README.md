@@ -1,6 +1,6 @@
 # Monorepo Demo
 
-This repository is a monorepo that manages multiple projects in a single codebase using pnpm workspace.
+This repository is a **monorepo** that manages multiple projects in a single codebase using **pnpm workspace**. It also supports incremental builds with **turbo**.
 
 ## Purpose
 
@@ -38,6 +38,10 @@ monorepo-demo/
 ## Getting Started
 
 - Install **pnpm**
+- Install **turbo** globally:
+    ```sh
+    npm install -g turbo
+    ```
 - At the root directory, run `pnpm i` to install all dependencies
 - Open the `apps/frontend/dashboard` directory, and run `pnpm run dev` to start the example application.
 - If you want to use hot reload in the packages project, you can open the project you want to develop and run `pnpm run dev`
@@ -46,6 +50,7 @@ monorepo-demo/
 
 - Node.js
 - pnpm
+- turbo
 
 ### Installation
 
@@ -117,6 +122,16 @@ Changes made in the `ui` package will now be reflected in the `dashboard` app wi
     ```sh
     pnpm run dev
     ```
+
+### Incremental Builds with Turbo
+
+To use turbo for incremental builds, you can run the following command:
+
+```sh
+turbo run build
+```
+
+This will build only the projects that have changed since the last build, speeding up the build process significantly.
 
 ## License
 
