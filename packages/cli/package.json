@@ -1,3 +1,11 @@
 {
-  "name": "@my-org/cli"
+  "name": "@my-org/cli",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "tsup": "8.4.0",
+    "typescript": "5.8.2"
+  }
 }

@@ -1,5 +1,13 @@
 {
   "name": "@my-org/ui",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "tsup": "8.4.0",
+    "typescript": "5.8.2"
+  },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
