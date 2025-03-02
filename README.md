@@ -1,5 +1,7 @@
 # Monorepo Demo
 
+[English](./README.md) | [中文](./README.zh-cn.md)
+
 This repository is a **monorepo** that manages multiple projects in a single codebase using **pnpm workspace**. It also supports incremental builds with **turbo**.
 
 ## Table of Contents
