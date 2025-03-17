@@ -1,14 +1,14 @@
 {
-  "name": "monorepo-demo",
+  "name": "quick-mono",
   "version": "1.0.0",
-  "description": "A monorepo template with pnpm",
+  "description": "一个用 pnpm + turbo 搭建的 monorepo 的模版仓库。A monorepo template with pnpm and turbo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "turbo dev",
     "build": "turbo build"
   },
-  "keywords": ["monorepo", "pnpm"],
+  "keywords": ["monorepo", "pnpm", "turbo"],
   "author": "zhangivon",
   "license": "MIT",
   "packageManager": "pnpm@9.14.2"
