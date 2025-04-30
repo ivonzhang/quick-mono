@@ -1,0 +1,28 @@
+{
+  "name": "@my-org/build-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "build-scripts": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc -b"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "chokidar": "4.0.3",
+    "fs-extra": "11.3.0",
+    "typescript": "5.8.2",
+    "glob": "11.0.2",
+    "tsc-alias": "1.8.13"
+  }
+}
