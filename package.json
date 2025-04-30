@@ -11,5 +11,13 @@
   "keywords": ["monorepo", "pnpm", "turbo"],
   "author": "zhangivon",
   "license": "MIT",
-  "packageManager": "pnpm@9.14.2"
+  "packageManager": "pnpm@9.14.2",
+  "pnpm": {
+    "overrides": {
+      "react": "catalog:react18",
+      "react-dom": "catalog:react18",
+      "@types/react": "catalog:react18",
+      "@types/react-dom": "catalog:react18"
+    }
+  }
 }

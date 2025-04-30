@@ -2,4 +2,21 @@ packages:
   - 'packages/*'
   - 'apps/backend/*'
   - 'apps/frontend/*'
-  
+
+# Define a catalog of version ranges.
+# doc: https://pnpm.nodejs.cn/catalogs/
+# when used in root package.json filed "pnpm:{"overrides: {}"}",it will specify all version in the monorepo, include the package in the node_modules
+# When used in a sub package, it will specify the npm version of the current sub package
+catalog:
+  typescript: 5.8.2
+  tsup: 8.4.0
+
+catalogs:
+  # Can be referenced through "catalog:react18"
+  react18:
+    react: 18.3.1
+    react-dom: 18.3.1
+    "@types/react": 18.3.20
+    "@types/react-dom": 18.3.7
+
+    

@@ -9,8 +9,8 @@
     "build:ts": "build-scripts"
   },
   "devDependencies": {
-    "tsup": "8.4.0",
-    "typescript": "5.8.2",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
     "@my-org/build-scripts": "workspace:*"
   },
   "peerDependencies": {

@@ -21,7 +21,7 @@
     "@types/node": "^22.15.3",
     "chokidar": "4.0.3",
     "fs-extra": "11.3.0",
-    "typescript": "5.8.2",
+    "typescript": "catalog:",
     "glob": "11.0.2",
     "tsc-alias": "1.8.13"
   }
