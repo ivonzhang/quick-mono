@@ -1,7 +1,13 @@
 // src/components/Input/Input.tsx
 import { jsx } from "react/jsx-runtime";
 var Input = () => {
-  return /* @__PURE__ */ jsx("input", { placeholder: "it is an input component of @my-org/ui" });
+  return /* @__PURE__ */ jsx("div", { className: "my-ui-input", children: /* @__PURE__ */ jsx(
+    "input",
+    {
+      className: "my-ui-input-inner",
+      placeholder: "it is an input component of @my-org/ui"
+    }
+  ) });
 };
 
 // src/components/Button/Button.tsx

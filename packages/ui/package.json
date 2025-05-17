@@ -9,9 +9,13 @@
     "build:ts": "build-scripts"
   },
   "devDependencies": {
+    "@my-org/build-scripts": "workspace:*",
+    "esbuild-plugin-less": "^1.3.22",
+    "less": "^4.3.0",
+    "postcss": "^8.5.3",
+    "postcss-less": "^6.0.0",
     "tsup": "catalog:",
-    "typescript": "catalog:",
-    "@my-org/build-scripts": "workspace:*"
+    "typescript": "catalog:"
   },
   "peerDependencies": {
     "react": "^19.0.0",

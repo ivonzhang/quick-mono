@@ -1,5 +1,13 @@
-import React from 'react';
+import React from "react";
+import "./index.less";
 
 export const Input = () => {
-  return <input placeholder="it is an input component of @my-org/ui" />;
-}
+  return (
+    <div className="my-ui-input">
+      <input
+        className="my-ui-input-inner"
+        placeholder="it is an input component of @my-org/ui"
+      />
+    </div>
+  );
+};
