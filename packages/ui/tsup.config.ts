@@ -1,5 +1,7 @@
 import { defineConfig } from "tsup";
 import { lessLoader } from "esbuild-plugin-less";
+// @ts-ignore
+import { readFile, writeFile, access } from "node:fs/promises"; // 想使用上类型声明，可以把当前文件加入到tsconfig.json的include配置中
 
 export default defineConfig({
   entryPoints: ["src/index.ts"],
@@ -19,4 +21,35 @@ export default defineConfig({
       }
     ),
   ],
+  async onSuccess() {
+    // 构建完成后，在 JS 中插入 CSS 导入语句
+    insertCssImportToBundler();
+  },
 });
+
+async function insertCssImportToBundler() {
+  const jsFiles = ["dist/index.mjs"]; // 根据实际输出调整
+
+  for (const jsFile of jsFiles) {
+    if (await fileExists(jsFile)) {
+      let content = await readFile(jsFile, "utf8");
+
+      // 在文件开头插入 CSS 导入语句
+      const cssImport = "import './index.css';\n";
+      if (!content.startsWith(cssImport)) {
+        content = cssImport + content;
+        await writeFile(jsFile, content);
+        console.log(`已在 ${jsFile} 中插入 CSS 导入`);
+      }
+    }
+  }
+}
+
+async function fileExists(path: string) {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
+}

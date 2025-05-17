@@ -1,3 +1,4 @@
+import './index.css';
 // src/components/Input/Input.tsx
 import { jsx } from "react/jsx-runtime";
 var Input = () => {
