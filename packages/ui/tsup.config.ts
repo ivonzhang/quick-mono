@@ -5,7 +5,7 @@ import { readFile, writeFile, access } from "node:fs/promises"; // 想使用上�
 
 export default defineConfig({
   entryPoints: ["src/index.ts"],
-  format: ["esm"],
+  format: ["esm", "cjs"],
   dts: true,
   outDir: "dist",
   // esbuild 社区插件: https://github.com/esbuild/community-plugins
@@ -28,7 +28,7 @@ export default defineConfig({
 });
 
 async function insertCssImportToBundler() {
-  const jsFiles = ["dist/index.mjs"]; // 根据实际输出调整
+  const jsFiles = ["dist/index.mjs"]; // 根据实际输出调整,esm模块可以这么用。commonjs可能要用require语句
 
   for (const jsFile of jsFiles) {
     if (await fileExists(jsFile)) {

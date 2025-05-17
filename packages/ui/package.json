@@ -8,6 +8,14 @@
     "build": "tsup && pnpm run build:ts",
     "build:ts": "build-scripts"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./esm": "./dist/esm/index.js"
+  },
   "devDependencies": {
     "@my-org/build-scripts": "workspace:*",
     "@types/node": "22.15.3",
