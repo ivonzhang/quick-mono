@@ -1,6 +1,7 @@
 import { Input } from '@my-org/ui';
 // 使用另一种方式导入 ui 库
-import { Button } from '@my-org/ui/esm';
+// import { Button } from '@my-org/ui/esm'; // 这种方式也可以，但是不推荐，因为会导致本地开发时热更新失效
+import { Button } from '@my-org/ui';
 
 import './App.css'
 
