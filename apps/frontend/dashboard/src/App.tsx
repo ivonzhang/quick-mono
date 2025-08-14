@@ -1,6 +1,6 @@
 import { Input } from '@my-org/ui';
 // 使用另一种方式导入 ui 库
-import { Button } from '@my-org/ui/dist/esm';
+import { Button } from '@my-org/ui/esm';
 
 import './App.css'
 
