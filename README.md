@@ -1,14 +1,14 @@
-# Description
+# Overview
 
 [English](./README.md) | [中文](./README.zh-cn.md)
 
-This repository is a **monorepo** that manages multiple projects in a single codebase using **pnpm workspace**. It also supports incremental builds with **turbo**.
+This repository is a **monorepo** that uses **pnpm workspace** to manage multiple projects in a single codebase. It also supports incremental builds with **turbo**.
 
 ## Table of Contents
 
 - [Purpose](#purpose)
 - [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
+- [Quick Start](#quick-start)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running Projects](#running-projects)
@@ -20,7 +20,7 @@ This repository is a **monorepo** that manages multiple projects in a single cod
 
 ## Purpose
 
-The purpose of this repository is to enable developers to quickly set up a monorepo for business development. Developers can use the current project structure to develop their own business logic and organize their own monorepo.
+The purpose of this repository is to help developers quickly set up a monorepo for business development. You can use the current project structure to develop your own business logic and organize your own monorepo.
 
 ## Project Structure
 
@@ -44,29 +44,33 @@ monorepo-demo/
 - **apps/**: Contains business logic code.
   - **backend/**: Backend service code.
   - **frontend/**: Frontend application code.
-    - **dashboard/**: Example application demonstrating the integration of the packages/ui library.
+    - **dashboard/**: Example application demonstrating how to integrate the `packages/ui` library.
     - **home/**: Another frontend application.
-- **packages/**: Contains all the shared libraries.
+- **packages/**: Contains all shared libraries.
   - **cli/**: Scripts for managing the monorepo.
   - **tools/**: Common utility functions for the project.
   - **ui/**: UI component library.
 
-## Getting Started
+## Quick Start
 
-- Install **pnpm**
-- Install **turbo** globally:
+- Install **pnpm** globally
+    ```bash
+    npm i pnpm -g
+    ```
+- Install **turbo** globally
     ```sh
     npm install -g turbo
     ```
-- At the root directory, run `pnpm i` to install all dependencies
-- Open the `apps/frontend/dashboard` directory, and run `pnpm run dev` to start the example application.
-- If you want to use hot reload in the packages project, you can open the project you want to develop and run `pnpm run dev`
+- Run `pnpm i` in the root directory to install all dependencies
+- Run `pnpm dev` in the root directory to start the example app and enable hot reload.
+- Incremental build: `pnpm build`
+- Publish to **npm registry**: `pnpm publish`. You can use [changeset](https://pnpm.io/using-changesets) for version management.
 
 ### Prerequisites
 
-- Node.js
-- pnpm
-- turbo
+- Install `Node.js`
+- Install `pnpm` globally
+- Install [turbo]([turbo](https://www.npmjs.com/package/turbo)) globally
 
 ### Installation
 
@@ -83,14 +87,25 @@ monorepo-demo/
 
 ### Running Projects
 
-To run a specific project, navigate to the project's directory and run the start script:
+- <b>Method 1 (Recommended)</b>
 
-```sh
-cd apps/frontend/dashboard
-pnpm run dev
-```
+  This project has integrated `turbo`, and the root `package.json` defines the script `"dev": "turbo dev"`, so you can start everything with one command at the root:
+  ```bash
+  # This will start all dev scripts and enable hot reload
+  pnpm dev
+  ```
+
+- <b>Method 2</b>
+  To run a specific project, navigate to the project directory and run the start script:
+    ```bash
+    cd apps/frontend/dashboard
+    pnpm run dev
+    ```
 
 ### Using Hot Reload
+
+> **[Latest Note]**: This project has integrated turbo, so you can start everything with one command at the root and have hot reload enabled. Of course, you can also operate on specific packages as follows:
+
 
 To enable hot reload for local development, follow these steps:
 
@@ -136,7 +151,7 @@ Changes made in the `ui` package will now be reflected in the `dashboard` app wi
 
 - **Start the projects**:
     ```sh
-    pnpm run dev
+    pnpm dev
     ```
 
 ### Incremental Builds with Turbo
@@ -147,8 +162,8 @@ To use turbo for incremental builds, you can run the following command:
 turbo run build
 ```
 
-This will build only the projects that have changed since the last build, speeding up the build process significantly.
+This will build only the projects that have changed since the last build, significantly speeding up the build process.
 
 ## License
 
-This project is licensed under the MIT License.
+This project uses the MIT License.

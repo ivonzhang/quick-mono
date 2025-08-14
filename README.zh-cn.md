@@ -2,7 +2,7 @@
 
 [English](./README.md) | [中文](./README.zh-cn.md)
 
-这个仓库是一个**monorepo**，使用**pnpm workspace**管理单个代码库中的多个项目。它还支持使用**turbo**进行增量构建。
+这个仓库是一个 **monorepo**，使用 **pnpm workspace** 管理单个代码库中的多个项目。它还支持使用 **turbo** 进行增量构建。
 
 ## 目录
 
@@ -20,7 +20,7 @@
 
 ## 目的
 
-这个仓库的目的是为了让开发者能够快速搭建一个monorepo进行业务开发。开发者可以使用当前的项目结构来开发自己的业务逻辑并组织自己的monorepo。
+这个仓库的目的是为了让开发者能够快速搭建一个 `monorepo` 进行业务开发。开发者可以使用当前的项目结构来开发自己的业务逻辑并组织自己的`monorepo`。
 
 ## 项目结构
 
@@ -44,29 +44,34 @@ monorepo-demo/
 - **apps/**: 包含业务逻辑代码。
   - **backend/**: 后端服务代码。
   - **frontend/**: 前端应用代码。
-    - **dashboard/**: 示例应用，展示如何集成packages/ui库。
+    - **dashboard/**: 示例应用，展示如何集成 `packages/ui` 库。
     - **home/**: 另一个前端应用。
 - **packages/**: 包含所有共享库。
-  - **cli/**: 管理monorepo的脚本。
+  - **cli/**: 管理 `monorepo` 的脚本。
   - **tools/**: 项目中的一些通用工具函数。
-  - **ui/**: UI组件库。
+  - **ui/**: UI 组件库。
 
 ## 快速开始
 
-- 安装 **pnpm**
-- 全局安装 **turbo**:
+- 全局安装 **pnpm**
+    ```bash
+    npm i pnpm -g
+    ```
+- 全局安装 **turbo**
     ```sh
     npm install -g turbo
     ```
 - 在根目录运行 `pnpm i` 安装所有依赖
-- 打开 `apps/frontend/dashboard` 目录，运行 `pnpm run dev` 启动示例应用。
-- 如果你想在packages项目中使用热更新，可以打开你想开发的项目并运行 `pnpm run dev`
+- 根目录下运行 `pnpm dev` 启动示例应用和热更新。
+- 增量构建 `pnpm build`
+- 发布到 **npm registry**：`pnpm publish`。可以结合 [changeset](https://pnpm.io/using-changesets) 进行版本管理
+
 
 ### 前置条件
 
-- Node.js
-- pnpm
-- turbo
+- 安装 `Node.js`
+- 全局安装 `pnpm`
+- 全局安装 [turbo](https://www.npmjs.com/package/turbo)
 
 ### 安装
 
@@ -83,14 +88,25 @@ monorepo-demo/
 
 ### 运行项目
 
-要运行特定项目，导航到项目目录并运行启动脚本:
+- <b>方式一(推荐)</b>
 
-```sh
-cd apps/frontend/dashboard
-pnpm run dev
-```
+  本项目已经接入了 `turbo`，并在根目录的 `package.json` 中定义了脚本 `"dev": "turbo dev"`, 所以可以直接在根目录下**一键启动**
+  ```bash
+  # 你将可以启动所有 dev 脚本，也具备了热更新的能力了
+  pnpm dev
+  ```
+
+- <b>方式二</b>
+  要运行特定项目，导航到项目目录并运行启动脚本:
+    ```bash
+    cd apps/frontend/dashboard
+    pnpm run dev
+    ```
 
 ### 使用热更新
+
+> **【最新说明】**：本项目已经接入了 turbo，在根目录下可以一键启动，即可具备热更新的能力了。当然你也可以按照以下操作，对特定的包进行操作
+
 
 要启用本地开发的热更新，请按照以下步骤操作:
 
@@ -136,12 +152,12 @@ pnpm run dev
 
 - **启动项目**:
     ```sh
-    pnpm run dev
+    pnpm dev
     ```
 
 ### 使用Turbo进行增量构建
 
-要使用turbo进行增量构建，可以运行以下命令:
+要使用 turbo 进行增量构建，可以运行以下命令:
 
 ```sh
 turbo run build
