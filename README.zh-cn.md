@@ -16,6 +16,7 @@
   - [添加新项目](#添加新项目)
   - [常用脚本](#常用脚本)
   - [使用Turbo进行增量构建](#使用turbo进行增量构建)
+- [利用 pnpm 的 publishConfig 字段提升本地开发体验](#利用-pnpm-的-publishconfig-字段提升本地开发体验)
 - [许可证](#许可证)
 
 ## 目的
@@ -164,6 +165,39 @@ turbo run build
 ```
 
 这将只构建自上次构建以来发生更改的项目，从而显著加快构建过程。
+## 利用 pnpm 的 publishConfig 字段提升本地开发体验
+
+通过在每个包的 `package.json` 中配置 [publishConfig](https://pnpm.io/package_json#publishconfig) 字段（如 `main`、`module`、`types` 等），可以指定包在发布和本地开发时的入口文件路径。这样可以让本地开发时直接链接到源码文件，带来如下优势：
+
+- **无需提前编译 build**：包可直接从源码文件被引用，无需预先构建。
+- **浏览器源码调试**：可以在浏览器中直接调试包的源码文件，定位问题更高效。
+- **无需配置 Vite 的 alias**：pnpm 会自动链接源码，无需手动指定 alias。
+
+### 使用方法
+以当前项目的 `packages/tools` 举例
+
+1. 在包的 `package.json` 中添加如下字段：
+    ```json
+    {
+        // 本地指向真实存在的 TS 源码（确保 src/index.ts 存在）
+        "main": "src/index.ts", 
+        "module": "src/index.ts", // 统一指向 TS 源码（避免找不到 .mjs）
+        "types": "src/index.ts",  // 本地用 TS 源码直接提供类型（无需提前编译 .d.ts）
+        "publishConfig": {
+            // 发布时覆盖为编译后的产物（不变）
+            "main": "dist/index.js",
+            "module": "dist/index.mjs",
+            "types": "dist/index.d.mts"
+        },
+    }
+    ```
+   表示本地开发和发布时都以源码文件为入口。
+
+2. 运行 `pnpm dev` 或启动应用时，依赖的包会自动链接到源码入口文件。
+
+3. 你可以直接调试和修改包源码，变更会实时反映到应用，无需重新构建。
+
+这种方式极大提升了 monorepo 项目在本地开发时的体验。
 
 ## 许可证
 

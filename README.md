@@ -16,6 +16,7 @@ This repository is a **monorepo** that uses **pnpm workspace** to manage multipl
   - [Adding a New Project](#adding-a-new-project)
   - [Common Scripts](#common-scripts)
   - [Incremental Builds with Turbo](#incremental-builds-with-turbo)
+- [Enhancing Local Development Experience with pnpm publishConfig](#enhancing-local-development-experience-with-pnpm-publishconfig)
 - [License](#license)
 
 ## Purpose
@@ -163,6 +164,39 @@ turbo run build
 ```
 
 This will build only the projects that have changed since the last build, significantly speeding up the build process.
+## Enhancing Local Development Experience with pnpm publishConfig
+
+By configuring the [publishConfig](https://pnpm.io/package_json#publishconfig) field (such as `main`, `module`, `types`, etc.) in each package's `package.json`, you can specify the entry file paths for both publishing and local development. This allows you to link directly to source files during local development, with the following benefits:
+
+- **No need to pre-build**: Packages can be referenced directly from source files without prior compilation.
+- **Source debugging in browser**: You can debug package source files directly in the browser for more efficient troubleshooting.
+- **No need to configure Vite alias**: pnpm automatically links to source files, so you don't need to manually specify aliases.
+
+### How to use
+Take the current project's `packages/tools` as an example:
+
+1. Add the following fields to the package's `package.json`:
+    ```json
+    {
+        // Locally point to the actual TS source (ensure src/index.ts exists)
+        "main": "src/index.ts", 
+        "module": "src/index.ts", // Unified to TS source (avoid missing .mjs)
+        "types": "src/index.ts",  // Directly provide types from TS source (no need to pre-compile .d.ts)
+        "publishConfig": {
+            // Overwrite with compiled output when publishing (unchanged)
+            "main": "dist/index.js",
+            "module": "dist/index.mjs",
+            "types": "dist/index.d.mts"
+        },
+    }
+    ```
+   This means both local development and publishing use the source file as the entry point.
+
+2. When you run `pnpm dev` or start your app, dependent packages will automatically link to the source entry file.
+
+3. You can directly debug and modify package source code, and changes will be reflected in the app in real time without rebuilding.
+
+This approach greatly improves the local development experience for monorepo projects.
 
 ## License
 

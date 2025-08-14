@@ -14,7 +14,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "@my-org/ui": "workspace:*",
-    "@my-org/cli": "workspace:*"
+    "@my-org/cli": "workspace:*",
+    "@my-org/tools": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
