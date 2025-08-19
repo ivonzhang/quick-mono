@@ -6,7 +6,7 @@ import { readFile, writeFile, access } from "node:fs/promises"; // 想使用上�
 export default defineConfig({
   entryPoints: ["src/index.ts"],
   format: ["esm", "cjs"],
-  dts: false,
+  dts: true,
   outDir: "dist",
   // esbuild 社区插件: https://github.com/esbuild/community-plugins
   esbuildPlugins: [

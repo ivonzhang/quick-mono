@@ -4,7 +4,7 @@
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "outDir": "dist",
-    "composite": true,
+    "composite": false,
     "declaration": true,
     "rootDir": "src",
     "skipLibCheck": true,
