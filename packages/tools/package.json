@@ -1,5 +1,7 @@
 {
   "name": "@my-org/tools",
+  "version": "1.0.0",
+  "description": "A set of utility tools for development",
   "main": "src/index.ts",
   "module": "src/index.ts",
   "types": "src/index.ts",
@@ -8,6 +10,9 @@
     "module": "dist/index.mjs",
     "types": "dist/index.d.mts"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "typescript": "catalog:",
     "tsup": "catalog:"

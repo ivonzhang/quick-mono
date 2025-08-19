@@ -1,7 +1,7 @@
 {
   "name": "@my-org/build-scripts",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个支持打包 Bundleless + Bundle 的构建脚本",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -18,11 +18,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.15.3",
     "chokidar": "4.0.3",
     "fs-extra": "11.3.0",
-    "typescript": "catalog:",
     "glob": "11.0.2",
-    "tsc-alias": "1.8.13"
+    "tsc-alias": "1.8.13",
+    "typescript": "catalog:"
   }
 }
